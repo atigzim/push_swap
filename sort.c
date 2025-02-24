@@ -1,6 +1,6 @@
 #include "push_swap.h"
-
-int    get_range(int size)
+#include <unistd.h>
+unsigned int   get_range(unsigned int size)
 {
     if (size <= 16)
         return (size / 2);
@@ -14,21 +14,24 @@ int    get_range(int size)
 
 void tow(t_list **stack_a)
 {
+	
 	sa(stack_a);
 }
 
-void ft_min(t_list **stack_a, t_list *node)
+void ft_min(t_list **stack_a,t_list **node)
 {
 	t_list *temp;
 
+
 	temp = (*stack_a)->next;
-	node = *stack_a;
+	*node = *stack_a;
 	while (temp)
 	{
-		if(node->content > temp->content)
-			node = temp;
+		if((*node)->content > temp->content)
+			*node = temp;
 		temp = temp->next;
 	}
+		
 }
 void	ft_three(t_list **stack_a, t_list **stack_b)
 {
@@ -66,18 +69,20 @@ void	five(t_list **stack_a, t_list **stack_b)
 	t_list *temp;
 	t_list *head_b;
 	int size;
-
+	
 	size = ft_lstsize(*stack_a);
-	node = 0;
 	while(size > 3)
 	{
+		ft_min(stack_a,&node);
 		temp = *stack_a;
-		ft_min(stack_a,node);
+		printf("node == %d\n",node->content);
 		while(temp)
 		{
 			temp = *stack_a;
+			printf("node == %d\n",node->content);
 			if(node->content == temp->content)
 			{
+				
 				pa(stack_a, stack_b);
 				break ;
 			}

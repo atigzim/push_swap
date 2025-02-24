@@ -33,7 +33,8 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 long				ft_atoi(const char *str);
 char				**ft_split(char const *s, char c);
 size_t				ft_strlen(const char *s);
-int					ft_lstsize(t_list *lst);
+unsigned int	ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 void				five(t_list **stack_a, t_list **stack_b);
 void				ft_three(t_list **stack_a, t_list **stack_b);
 int		*parsing(t_list **stack_a, char **av, int ac);
@@ -45,6 +46,11 @@ int 	*bubble_sort(t_list **head);
 void	repetition(t_list **stack);
 void	plus_and(char *av);
 void	alpha(char *av);
-void	ft_min(t_list **stack_a, t_list *node);
+void ft_min(t_list **stack_a,t_list **node);
+unsigned int   get_range(unsigned int size);
+void tow(t_list **stack_a);
+void search_in_stack_b(t_list **stack_b);
+int search_in_stack_a(t_list *stack_a, int *p, unsigned int range, unsigned int i);
+void posh_stack_a(t_list **stack_a, t_list **stack_b, int *p);
 
 #endif

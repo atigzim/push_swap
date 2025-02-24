@@ -69,10 +69,10 @@ t_list	*ft_lstnew(int content)
 	return (new_node);
 }
 
-int	ft_lstsize(t_list *lst)
+unsigned int	ft_lstsize(t_list *lst)
 {
 	t_list	*itr;
-	int		i;
+	unsigned int 	i;
 
 	if (!lst)
 		return (0);
