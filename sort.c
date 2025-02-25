@@ -3,13 +3,11 @@
 unsigned int   get_range(unsigned int size)
 {
     if (size <= 16)
-        return (size / 2);
+        return (size / 2 );
     else if (size <= 100)
-        return (size / 5);
-    else if (size <= 500)
-        return (size / 12);
+        return (16);
     else
-        return (35);
+        return (38);
 }
 
 void tow(t_list **stack_a)
@@ -42,12 +40,12 @@ void	ft_three(t_list **stack_a, t_list **stack_b)
 	temp = *stack_a;
 	temp1 = temp->next;
 	temp2 = temp1->next;
-	if(temp->content > temp1->content && temp1->content > temp2->content)
+	if(temp->content > temp1->content && temp1->content > temp2->content) // 1 3 2
 	{
 		rra(stack_a);
-		pa(stack_a,stack_b);
-		sa(stack_a);
 		pb(stack_a,stack_b);
+		sa(stack_a);
+		pa(stack_a,stack_b);
 	}
 	else if(temp->content > temp1->content && temp->content < temp2->content)
 		sa(stack_a);
@@ -55,9 +53,9 @@ void	ft_three(t_list **stack_a, t_list **stack_b)
 		rra(stack_a);
 	else if(temp->content < temp1->content && temp1->content > temp2->content)
 	{
-		pa(stack_a,stack_b);
+		pb(stack_a, stack_b);
 		sa(stack_a);
-		pb(stack_a,stack_b);
+		pa(stack_a, stack_b);
 	}
 	else if(temp->content > temp1->content && temp->content > temp2->content)
 		ra(stack_a);
@@ -75,15 +73,15 @@ void	five(t_list **stack_a, t_list **stack_b)
 	{
 		ft_min(stack_a,&node);
 		temp = *stack_a;
-		printf("node == %d\n",node->content);
+		// printf("node == %d\n",node->content);
 		while(temp)
 		{
 			temp = *stack_a;
-			printf("node == %d\n",node->content);
+			// printf("node == %d\n",node->content);
 			if(node->content == temp->content)
 			{
 				
-				pa(stack_a, stack_b);
+				pb(stack_a, stack_b);
 				break ;
 			}
 			else
@@ -95,7 +93,7 @@ void	five(t_list **stack_a, t_list **stack_b)
 	head_b = *stack_b;
 	while(head_b)
 	{
-		pb(stack_a,stack_b);
+		pa(stack_a,stack_b);
 		head_b = *stack_b;
 	}
 

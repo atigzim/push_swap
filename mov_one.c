@@ -38,7 +38,7 @@ void	ss(t_list **stack_a, t_list **stack_b)
 	}
 	write(1, "ss\n",3);
 }
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*head_a;
 	t_list	*head_b;
@@ -53,14 +53,15 @@ void	pa(t_list **stack_a, t_list **stack_b)
 		*stack_a = tmp_a;
 		*stack_b = head_a;
 	}
-	write(1, "pa\n",3);
+	write(1, "pb\n",3);
 }
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b)
 {
 	t_list *head_a;
 	t_list *head_b;
 	t_list *tmp_b;
-	if (stack_b)
+	
+	if (stack_a)
 	{
 		head_a = *stack_a;
 		head_b = *stack_b;
@@ -69,5 +70,5 @@ void	pb(t_list **stack_a, t_list **stack_b)
 		*stack_b = tmp_b;
 		*stack_a = head_b;
 	}
-	write(1, "pb\n",3);
+	write(1, "pa\n",3);
 }

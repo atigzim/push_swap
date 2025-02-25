@@ -47,10 +47,13 @@ void	repetition(t_list **stack);
 void	plus_and(char *av);
 void	alpha(char *av);
 void ft_min(t_list **stack_a,t_list **node);
+void ft_max(t_list *stack_a,t_list **node);
 unsigned int   get_range(unsigned int size);
 void tow(t_list **stack_a);
 void search_in_stack_b(t_list **stack_b);
 int search_in_stack_a(t_list *stack_a, int *p, unsigned int range, unsigned int i);
 void posh_stack_a(t_list **stack_a, t_list **stack_b, int *p);
+int bigger_element(t_list *stack_b);
+// void ra_rra(t_list *stack_a);
 
 #endif
