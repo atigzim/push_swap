@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mov_tow.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 14:33:57 by atigzim           #+#    #+#             */
+/*   Updated: 2025/02/27 14:48:28 by atigzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ra(t_list **stack_a)
@@ -12,7 +24,7 @@ void	ra(t_list **stack_a)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = head;
-	write(1,"ra\n",3);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_list **stack_b)
@@ -20,18 +32,16 @@ void	rb(t_list **stack_b)
 	t_list	*tmp;
 	t_list	*head;
 
-	
 	tmp = (*stack_b)->next;
-	
-		head = *stack_b;
-		*stack_b = tmp;
-		head->next = NULL;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = head;
-		
-	write(1,"rb\n",3);
+	head = *stack_b;
+	*stack_b = tmp;
+	head->next = NULL;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = head;
+	write(1, "rb\n", 3);
 }
+
 void	rr(t_list **stack_a, t_list **stack_b)
 {
 	if (!stack_a)
@@ -43,8 +53,9 @@ void	rr(t_list **stack_a, t_list **stack_b)
 		rb(stack_b);
 		ra(stack_a);
 	}
-	write(1,"rr\n",3);
+	write(1, "rr\n", 3);
 }
+
 void	rra(t_list **stack_a)
 {
 	t_list	*tmp;
@@ -61,13 +72,15 @@ void	rra(t_list **stack_a)
 	lst->next = NULL;
 	tmp->next = head;
 	*stack_a = tmp;
-	write(1,"rra\n",4);
+	write(1, "rra\n", 4);
 }
+
 void	rrb(t_list **stack_b)
 {
-	t_list *tmp;
-	t_list *head;
-	t_list *lst;
+	t_list	*tmp;
+	t_list	*head;
+	t_list	*lst;
+
 	head = *stack_b;
 	tmp = head;
 	lst = head;
@@ -78,5 +91,5 @@ void	rrb(t_list **stack_b)
 	lst->next = NULL;
 	tmp->next = head;
 	*stack_b = tmp;
-	write(1,"rrb\n",4);
+	write(1, "rrb\n", 4);
 }

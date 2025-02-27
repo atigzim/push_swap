@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 14:33:59 by atigzim           #+#    #+#             */
+/*   Updated: 2025/02/27 14:57:48 by atigzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	space(char *av)
@@ -11,33 +23,16 @@ void	space(char *av)
 		error();
 }
 
-int	chick(char *av)
-{
-	int	i;
-
-	i = 0;
-	while (av[i])
-	{
-		if (i == ' ')
-		{
-			i = 1;
-			return (i);
-		}
-		i++;
-	}
-	return (0);
-}
-
 t_list	*one_arg(char *av)
 {
 	t_list	*new_node;
 	int		j;
 
 	j = ft_atoi(av);
-	
 	new_node = ft_lstnew(j);
 	return (new_node);
 }
+
 t_list	*tow_arg(char *av)
 {
 	char	**arg;
@@ -61,6 +56,7 @@ t_list	*tow_arg(char *av)
 			ft_lstadd_back(&head, new_node);
 		i++;
 	}
+	free_chars(arg);
 	return (head);
 }
 
@@ -70,10 +66,9 @@ void	new_stack(char **av, t_list **head)
 	int		i;
 
 	i = 1;
-	
 	while (av[i])
 	{
-		if (chick(av[i]) == 0)
+		if (chick(av[i]) != 0)
 			new_node = tow_arg(av[i]);
 		else
 			new_node = one_arg(av[i]);
@@ -83,16 +78,14 @@ void	new_stack(char **av, t_list **head)
 			ft_lstadd_back(head, new_node);
 		i++;
 	}
-	// printf("%d",(*head)->content);
 }
 
 int	*parsing(t_list **stack_a, char **av, int ac)
 {
 	int	i;
-	int *p;
+	int	*p;
 
 	i = 1;
-	//p = 0;
 	while (ac > i)
 	{
 		if (!av[i][0])
@@ -102,12 +95,15 @@ int	*parsing(t_list **stack_a, char **av, int ac)
 		plus_and(av[i]);
 		i++;
 	}
-	
 	new_stack(av, stack_a);
-	// printf("%d",(*stack_a)->content);
 	repetition(stack_a);
+	p = bubble_sort(stack_a);
 	i = is_sort(stack_a);
-   	p = bubble_sort(stack_a);
-	// printf("%d",p[0]);
-	return p;
+	if (i == 0)
+	{
+		free(p);
+		free_stack(stack_a);
+		exit(0);
+	}
+	return (p);
 }

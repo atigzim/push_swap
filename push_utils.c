@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 14:34:17 by atigzim           #+#    #+#             */
+/*   Updated: 2025/02/27 15:03:09 by atigzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long	ft_atoi(const char *str)
 {
-	int		i;
-	int		j;
 	long	nb;
 
+	int (i), (j);
 	i = 0;
 	j = 1;
 	nb = 0;
@@ -71,8 +82,8 @@ t_list	*ft_lstnew(int content)
 
 unsigned int	ft_lstsize(t_list *lst)
 {
-	t_list	*itr;
-	unsigned int 	i;
+	t_list			*itr;
+	unsigned int	i;
 
 	if (!lst)
 		return (0);

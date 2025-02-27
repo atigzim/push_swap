@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 14:33:50 by atigzim           #+#    #+#             */
+/*   Updated: 2025/02/27 15:04:48 by atigzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void	free_chars(char **strs)
+void	free_chars(char **strs)
 {
 	int	i;
 
@@ -75,8 +87,8 @@ static char	**fill_strings(char **p, char c, const char *s, int i)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t i;
-	char **p;
+	size_t	i;
+	char	**p;
 
 	if (s == NULL)
 		return (NULL);

@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/27 14:33:05 by atigzim           #+#    #+#             */
+/*   Updated: 2025/02/27 15:26:05 by atigzim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 typedef struct s_list
 {
@@ -33,27 +44,30 @@ void				ft_lstadd_back(t_list **lst, t_list *new);
 long				ft_atoi(const char *str);
 char				**ft_split(char const *s, char c);
 size_t				ft_strlen(const char *s);
-unsigned int	ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
+unsigned int		ft_lstsize(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
 void				five(t_list **stack_a, t_list **stack_b);
-void				ft_three(t_list **stack_a, t_list **stack_b);
-int		*parsing(t_list **stack_a, char **av, int ac);
-void	new_stack(char **av, t_list **head);
-void	space(char *av);
-int		chick(char *av);
-int		is_sort(t_list **stack_a);
-int 	*bubble_sort(t_list **head);
-void	repetition(t_list **stack);
-void	plus_and(char *av);
-void	alpha(char *av);
-void ft_min(t_list **stack_a,t_list **node);
-void ft_max(t_list *stack_a,t_list **node);
-unsigned int   get_range(unsigned int size);
-void tow(t_list **stack_a);
-void search_in_stack_b(t_list **stack_b);
-int search_in_stack_a(t_list *stack_a, int *p, unsigned int range, unsigned int i);
-void posh_stack_a(t_list **stack_a, t_list **stack_b, int *p);
-int bigger_element(t_list *stack_b);
-// void ra_rra(t_list *stack_a);
-
+void				ft_three(t_list **stack_a);
+int					*parsing(t_list **stack_a, char **av, int ac);
+void				new_stack(char **av, t_list **head);
+void				space(char *av);
+int					chick(char *av);
+int					is_sort(t_list **stack_a);
+int					*bubble_sort(t_list **head);
+void				repetition(t_list **stack);
+void				plus_and(char *av);
+void				alpha(char *av);
+void				ft_min(t_list **stack_a, t_list **node);
+void				ft_max(t_list *stack_a, t_list **node);
+unsigned int		get_range(unsigned int size);
+void				tow(t_list **stack_a);
+void				search_in_stack_b(t_list **stack_b);
+int					search_in_stack_a(t_list *stack_a, int *p,
+						unsigned int range, unsigned int i);
+void				posh_stack_a(t_list **stack_a, t_list **stack_b, int *p);
+int					bigger_element(t_list *stack_b);
+// void ra_rra(t_list **stack_a);
+void				free_chars(char **strs);
+void				loop_bubbel_sort(int **pr, int j);
+void				max_sort_five(t_list **stack_a, t_list **stack_b);
 #endif
