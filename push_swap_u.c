@@ -6,48 +6,55 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:34:09 by atigzim           #+#    #+#             */
-/*   Updated: 2025/02/27 15:37:49 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/01 15:29:41 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	loop_bubbel_sort(int **pr, int j)
+void	ra_rra(t_list **stack_a, int size)
 {
 	int	i;
-	int	c;
-	int	*p;
 
-	i = 0;
-	p = *pr;
-	while (i < j - 1)
-	{
-		if (p[i] > p[i + 1])
-		{
-			c = p[i];
-			p[i] = p[i + 1];
-			p[i + 1] = c;
-			i = 0;
-		}
-		else
-			i++;
-	}
+	i = bigger_small(*stack_a);
+	if (i <= size / 2)
+		ra(stack_a);
+	else
+		rra(stack_a);
 }
 
-int	search_in_stack_a(t_list *stack_a, int *p, unsigned int range,
-		unsigned int i)
+void	ft_max(t_list *stack_a, t_list **node)
 {
-	if (stack_a->content < p[i])
-		return (0);
-	while (i < range)
+	t_list	*temp;
+
+	temp = stack_a->next;
+	*node = stack_a;
+	while (temp)
 	{
-		if (stack_a->content == p[i])
-		{
-			return (1);
-		}
-		i++;
+		if ((*node)->content < temp->content)
+			*node = temp;
+		temp = temp->next;
 	}
-	return (2);
+}
+void	posh_stack_b(t_list **stack_a, t_list **stack_b)
+{
+	unsigned int	i;
+	unsigned int	size;
+	t_list			*node;
+
+	while (*stack_b)
+	{
+		i = bigger_element(*stack_b);
+		size = ft_lstsize(*stack_b) / 2;
+		ft_max(*stack_b, &node);
+		if (i >= size)
+			while ((*stack_b)->content != node->content)
+				rrb(stack_b);
+		else
+			while ((*stack_b)->content != node->content)
+				rb(stack_b);
+		pa(stack_a, stack_b);
+	}
 }
 
 void	search_in_stack_b(t_list **stack_b)

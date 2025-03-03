@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:34:29 by atigzim           #+#    #+#             */
-/*   Updated: 2025/02/27 15:04:08 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/01 10:45:54 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	five(t_list **stack_a, t_list **stack_b)
 				break ;
 			}
 			else
-				ra(stack_a);
+				ra_rra(stack_a, size);
 		}
 		size--;
 	}

@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   mov_checker_three.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/27 14:34:11 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/01 15:26:56 by atigzim          ###   ########.fr       */
+/*   Created: 2025/03/01 18:02:43 by atigzim           #+#    #+#             */
+/*   Updated: 2025/03/01 18:02:44 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int	main(int ac, char **av)
+void	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	int		*p;
-
-	if (ac > 1)
+	if (!stack_a)
+		rrb(stack_b);
+	else if (!stack_b)
+		rra(stack_a);
+	else if (stack_a && stack_b)
 	{
-		stack_a = NULL;
-		stack_b = NULL;
-		p = parsing(&stack_a, av, ac);
-		if (ft_lstsize(stack_a) <= 5)
-			max_sort_five(&stack_a, &stack_b);
-		else
-		{
-			posh_stack_a(&stack_a, &stack_b, p);
-			posh_stack_b(&stack_a, &stack_b);
-		}
-		free(p);
-		free_stack(&stack_a);
+		rrb(stack_b);
+		rra(stack_a);
 	}
-	else
-		exit(1);
 }

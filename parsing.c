@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:33:59 by atigzim           #+#    #+#             */
-/*   Updated: 2025/02/27 14:57:48 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/03 00:14:09 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,26 @@ void	space(char *av)
 		error();
 }
 
-t_list	*one_arg(char *av)
+t_list	*one_arg(char *av, t_list **stack_a)
 {
 	t_list	*new_node;
-	int		j;
+	long	j;
 
 	j = ft_atoi(av);
+	if (j == 21474836418)
+	{
+		free_stack(stack_a);
+		error();
+	}
 	new_node = ft_lstnew(j);
 	return (new_node);
 }
 
-t_list	*tow_arg(char *av)
+t_list	*tow_arg(char *av, t_list **stack_a)
 {
 	char	**arg;
 	int		i;
-	int		j;
+	long	j;
 	t_list	*head;
 	t_list	*new_node;
 
@@ -49,6 +54,8 @@ t_list	*tow_arg(char *av)
 	while (arg[i])
 	{
 		j = ft_atoi(arg[i]);
+		if (j == 21474836418)
+			(free_stack(stack_a), error());
 		new_node = ft_lstnew(j);
 		if (!head)
 			head = new_node;
@@ -69,9 +76,9 @@ void	new_stack(char **av, t_list **head)
 	while (av[i])
 	{
 		if (chick(av[i]) != 0)
-			new_node = tow_arg(av[i]);
+			new_node = tow_arg(av[i], head);
 		else
-			new_node = one_arg(av[i]);
+			new_node = one_arg(av[i], head);
 		if (!head)
 			*head = new_node;
 		else

@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:33:05 by atigzim           #+#    #+#             */
-/*   Updated: 2025/02/27 15:26:05 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/02 23:56:57 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void				rr(t_list **stack_a, t_list **stack_b);
 void				rra(t_list **stack_a);
 void				rrb(t_list **stack_b);
 void				rrr(t_list **stack_a, t_list **stack_b);
+void				ra_rra(t_list **stack_a, int size);
 void				error(void);
+int					bigger_small(t_list *stack_a);
 int					ft_isdigit(int c);
 void				free_stack(t_list **stack);
 int					ft_isalpha(int c);
@@ -57,6 +59,7 @@ int					*bubble_sort(t_list **head);
 void				repetition(t_list **stack);
 void				plus_and(char *av);
 void				alpha(char *av);
+void				posh_stack_b(t_list **stack_a, t_list **stack_b);
 void				ft_min(t_list **stack_a, t_list **node);
 void				ft_max(t_list *stack_a, t_list **node);
 unsigned int		get_range(unsigned int size);
@@ -66,7 +69,6 @@ int					search_in_stack_a(t_list *stack_a, int *p,
 						unsigned int range, unsigned int i);
 void				posh_stack_a(t_list **stack_a, t_list **stack_b, int *p);
 int					bigger_element(t_list *stack_b);
-// void ra_rra(t_list **stack_a);
 void				free_chars(char **strs);
 void				loop_bubbel_sort(int **pr, int j);
 void				max_sort_five(t_list **stack_a, t_list **stack_b);
