@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:34:17 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/03 00:06:57 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/03 23:55:56 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ long	ft_atoi(const char *str)
 {
 	long	nb;
 
-	int(i), (j);
+	int (i), (j);
 	i = 0;
 	j = 1;
 	nb = 0;
@@ -35,7 +35,7 @@ long	ft_atoi(const char *str)
 	{
 		nb = (nb * 10) + (str[i] - 48);
 		if (nb > 2147483647 || nb < -2147483648)
-			return(21474836418);
+			return (21474836418);
 		i++;
 	}
 	return (nb * j);
@@ -45,6 +45,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;

@@ -6,22 +6,11 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:34:09 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/01 15:29:41 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:51:34 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ra_rra(t_list **stack_a, int size)
-{
-	int	i;
-
-	i = bigger_small(*stack_a);
-	if (i <= size / 2)
-		ra(stack_a);
-	else
-		rra(stack_a);
-}
 
 void	ft_max(t_list *stack_a, t_list **node)
 {
@@ -36,6 +25,7 @@ void	ft_max(t_list *stack_a, t_list **node)
 		temp = temp->next;
 	}
 }
+
 void	posh_stack_b(t_list **stack_a, t_list **stack_b)
 {
 	unsigned int	i;

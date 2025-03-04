@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:33:57 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/02 21:54:55 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/03 20:48:31 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	rb(t_list **stack_b)
 {
 	t_list	*tmp;
 	t_list	*head;
-	
+
 	tmp = (*stack_b)->next;
 	head = *stack_b;
 	*stack_b = tmp;

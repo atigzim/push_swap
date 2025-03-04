@@ -2,7 +2,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 MAIN = push_swap.c
 BNS = checker.c
-SRC =  ft_split.c  mov_checker_one.c mov_checker_tow.c  mov_checker_three.c  checker_utils.c  get_next_line.c mov_one.c get_next_line_utils.c push_swap_u.c mov_tow.c  parsing_two.c   push_utils_two.c	mov_three.c  parsing.c  push_utils.c  sort.c
+SRC =  ft_split.c  mov_checker_one.c mov_checker_tow.c  mov_checker_three.c ra_rra.c \
+ checker_utils.c  gnl.c mov_one.c push_swap_u.c mov_tow.c  parsing_two.c push_utils_two.c mov_three.c  parsing.c  push_utils.c  sort.c
 NAME = push_swap
 CHECKER = checker
 OBJ = $(SRC:.c=.o)

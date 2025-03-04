@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 18:02:30 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/02 21:58:49 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/04 01:41:18 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,76 +30,77 @@ void	parsinggg(t_list **stack_a, char **av, int ac)
 	repetition(stack_a);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+int	mov(t_list **stack_a, t_list **stack_b, char *get)
+{
+	if (ft_strcmp(get, "ra\n") == 0)
+		return (ft_ra(stack_a), 1);
+	else if (ft_strcmp(get, "rra\n") == 0)
+		return (ft_rra(stack_a), 1);
+	else if (ft_strcmp(get, "rb\n") == 0)
+		return (ft_rb(stack_a), 1);
+	else if (ft_strcmp(get, "sb\n") == 0)
+		return (ft_sb(stack_b), 1);
+	else if (ft_strcmp(get, "sa\n") == 0)
+		return (ft_sa(stack_a), 1);
+	else if (ft_strcmp(get, "ss\n") == 0)
+		return (ft_ss(stack_a, stack_b), 1);
+	else if (ft_strcmp(get, "pb\n") == 0)
+		return (ft_pb(stack_a, stack_b), 1);
+	else if (ft_strcmp(get, "pa\n") == 0)
+		return (ft_pa(stack_a, stack_b), 1);
+	else if (ft_strcmp(get, "rrb\n") == 0)
+		return (ft_rrb(stack_b), 1);
+	else if (ft_strcmp(get, "rr\n") == 0)
+		return (ft_rr(stack_a, stack_b), 1);
+	else if (ft_strcmp(get, "rrr\n") == 0)
+		return (ft_rrr(stack_a, stack_b), 1);
+	return (0);
+}
+
+void	loop_get(char *get, t_list **stack_a, t_list **stack_b)
 {
 	int	i;
 
-	i = 0;
-	while (s1[i] || s2[i])
+	while (get)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
+		i = mov(stack_a, stack_b, get);
+		if (i == 0)
+		{
+			write(2, "Error\n", 6);
+			free_stack(stack_a);
+			free_stack(stack_b);
+			if (get)
+				free(get);
+			exit(1);
+		}
+		if (get)
+			free(get);
+		get = get_next_line(0);
 	}
-	return (0);
 }
 
 int	main(int ac, char **av)
 {
+	t_list	*stack_a;
+	t_list	*stack_b;
+	char	*get;
+	int		i;
+
 	if (ac > 1)
 	{
-		t_list *stack_a;
-		t_list *stack_b;
-		char *get;
-		int i;
-
 		stack_a = NULL;
 		stack_b = NULL;
 		parsinggg(&stack_a, av, ac);
-		get = get_next_line(1);
-		while (get != NULL)
-		{
-			//printf("%s",get);
-			if (ft_strcmp(get, "ra\n") == 0)
-				ft_ra(&stack_a);
-			else if (ft_strcmp(get, "rra\n") == 0)
-				ft_rra(&stack_a);
-			else if (ft_strcmp(get, "rb\n") == 0)
-				ft_rb(&stack_a);
-			else if (ft_strcmp(get, "sb\n") == 0)
-				ft_sb(&stack_b);
-			else if (ft_strcmp(get, "sa\n") == 0)
-				ft_sa(&stack_a);
-			else if (ft_strcmp(get, "pb\n") == 0)
-				ft_pb(&stack_a, &stack_b);
-			else if (ft_strcmp(get, "pa\n") == 0)
-				ft_pa(&stack_a, &stack_b);
-			else if (ft_strcmp(get, "rrb\n") == 0)
-				ft_rrb(&stack_b);
-			else
-			{
-				write(1, "KO\n", 3);
-				if (stack_a)
-					free_stack(&stack_a);
-				if (stack_b)
-					free_stack(&stack_b);
-				free(get);
-				exit(1);
-			}
-			free(get);
-			get = get_next_line(1);
-		}
-		get_next_line(0);
+		get = get_next_line(0);
+		loop_get(get, &stack_a, &stack_b);
 		i = is_sort(&stack_a);
-		if (i == 1)
+		if (i == 1 || stack_b)
 			write(1, "KO\n", 3);
 		else
 			write(1, "OK\n", 3);
-		if (stack_a)
-			free_stack(&stack_a);
-		if (stack_b)
-			free_stack(&stack_b);
+		free_stack(&stack_a);
+		free_stack(&stack_b);
 	}
 	else
-		exit(1);
+		exit(0);
 }

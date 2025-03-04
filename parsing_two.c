@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:34:04 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/01 10:50:06 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/04 01:08:56 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	plus_and(char *av)
 		if (ft_isdigit(av[i]) && ((av[i + 1] == '-') || (av[i + 1] == '+')))
 			error();
 		if (((av[i] == '-') || (av[i] == '+')) && ((av[i + 1] == '-') || (av[i
-					+ 1] == '+')))
+						+ 1] == '+')))
 			error();
 		if (((av[i] == '-') || (av[i] == '+')) && !ft_isdigit(av[i + 1]))
 			error();
@@ -73,7 +73,7 @@ int	*bubble_sort(t_list **head)
 	t_list	*tmp;
 	int		*p;
 
-	int(i), (j);
+	int (i), (j);
 	i = ft_lstsize(*head);
 	j = 0;
 	tmp = *head;
@@ -98,6 +98,8 @@ int	is_sort(t_list **stack_a)
 	t_list	*head;
 	t_list	*temp;
 
+	if (!*stack_a)
+		return (1);
 	head = *stack_a;
 	temp = head->next;
 	while (temp)

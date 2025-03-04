@@ -6,7 +6,7 @@
 /*   By: atigzim <atigzim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 14:34:15 by atigzim           #+#    #+#             */
-/*   Updated: 2025/03/02 23:16:35 by atigzim          ###   ########.fr       */
+/*   Updated: 2025/03/04 00:30:16 by atigzim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	free_stack(t_list **stack)
 	t_list	*lst;
 	t_list	*s;
 
+	if (!*stack)
+		return ;
 	lst = *stack;
 	while (lst)
 	{
@@ -32,6 +34,7 @@ void	free_stack(t_list **stack)
 		free(lst);
 		lst = s;
 	}
+	stack = NULL;
 }
 
 int	ft_isdigit(int c)
@@ -48,7 +51,7 @@ int	ft_isalpha(int c)
 	return (0);
 }
 
-void	error()
+void	error(void)
 {
 	write(1, "Error\n", 6);
 	exit(1);
