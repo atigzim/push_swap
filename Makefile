@@ -24,9 +24,9 @@ $(CHECKER) : $(OBJ_BNS) $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(OBJ_BNS) -o $(CHECKER)
 
 clean:
-	rm -f $(OBJ) $(OBJ_M) $(OBJ_BNS)
+	@rm -f $(OBJ) $(OBJ_M) $(OBJ_BNS)
 
 fclean: clean
-	rm -f $(NAME) $(CHECKER)
+	@rm -f $(NAME) $(CHECKER)
 
 re: fclean all
